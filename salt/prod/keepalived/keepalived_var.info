@@ -1,0 +1,15 @@
+{#
+预定使用 VIP 172.16.1.110
+http://salt00-keepalived:8888/haproxy-status
+http://salt00-keepalived/test_mysql.php
+http://salt00-keepalived/test_memcached.php
+#}
+
+{% macro keepalived_salt_path(salt_path="/app/software/salt-manage/keepalived") -%}
+  {{ salt_path }}
+{%- endmacro %}
+
+{% macro keepalived_version(version='1.4.2') -%}
+  {{ version }}
+{%- endmacro %}
+

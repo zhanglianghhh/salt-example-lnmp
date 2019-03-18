@@ -1,0 +1,34 @@
+{% macro zabbix_salt_path(salt_path="/app/software/salt-manage/zabbix") -%}
+  {{ salt_path }}
+{%- endmacro %}
+
+{% macro zabbix_version(version='4.0') -%}
+  {{ version }}
+{%- endmacro %}
+
+{# zabbix的数据库信息 #}
+{% macro zabbix_db_host(db_host='salt150-master') -%}
+  {{ db_host }}
+{%- endmacro %}
+
+{% macro zabbix_db_name(db_name='zabbix') -%}
+  {{ db_name }}
+{%- endmacro %}
+
+{% macro zabbix_db_user(db_user='zabbix') -%}
+  {{ db_user }}
+{%- endmacro %}
+
+{% macro zabbix_db_pwd(db_pwd='123456') -%}
+  {{ db_pwd }}
+{%- endmacro %}
+
+{# mysql 的root用户信息  用于导入zabbix数据库信息 #}
+{% macro zabbix_root_user(root_user='root') -%}
+  {{ root_user }}
+{%- endmacro %}
+
+{% macro mysql_root_pwd(root_pwd='123456') -%}
+  {{ root_pwd }}
+{%- endmacro %}
+

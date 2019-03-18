@@ -1,0 +1,29 @@
+{% macro nginx_php_conf_path(nginx_php_conf_path='/app/nginx/conf/online') -%}
+  {{ nginx_php_conf_path }}
+{%- endmacro %}
+
+{% macro php_mysql_conf_path(php_mysql_conf_path='/app/nginx/html') -%}
+  {{ php_mysql_conf_path }}
+{%- endmacro %}
+
+{# 整合的数据库信息 #}
+{% macro mysql_host01(mysql_host='salt03-web') -%}
+  {{ mysql_host }}
+{%- endmacro %}
+
+{% macro mysql_host02(mysql_host='salt04-web') -%}
+  {{ mysql_host }}
+{%- endmacro %}
+
+{% macro mysql_host03(mysql_host='salt05-web') -%}
+  {{ mysql_host }}
+{%- endmacro %}
+
+{% macro mysql_test_user(test_user='root') -%}
+  {{ test_user }}
+{%- endmacro %}
+
+{% macro mysql_test_password(test_password='123456') -%}
+  {{ test_password }}
+{%- endmacro %}
+

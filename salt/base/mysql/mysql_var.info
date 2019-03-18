@@ -1,0 +1,49 @@
+{# 数据库信息 #}
+{% macro mysql_salt_path(salt_path="/app/software/salt-manage/mysql") -%}
+  {{ salt_path }}
+{%- endmacro %}
+
+{# 5.6.22 版本及编译参数 #}
+{% macro mysql_version(version='5.6.22') -%}
+  {{ version }}
+{%- endmacro %}
+
+{% macro mysql_compile(compile='cmake . -DCMAKE_INSTALL_PREFIX=/app/mysql-5.6.22 -DMYSQL_DATADIR=/app/mysql-5.6.22/data -DMYSQL_UNIX_ADDR=/app/mysql-5.6.22/tmp/mysql.sock -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DEXTRA_CHARSETS=all -DWITH_MYISAM_STORAGE_ENGINE=1 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITH_MEMORY_STORAGE_ENGINE=1 -DWITH_PARTITION_STORAGE_ENGINE=1 -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 -DWITH_ZLIB=bundled -DWITH_SSL=bundled -DENABLED_LOCAL_INFILE=1 -DWITH_READLINE=1 -DWITH_EMBEDDED_SERVER=1 -DWITH_DEBUG=0') -%}
+  {{ compile }}
+{%- endmacro %}
+
+
+{# 5.5.32 版本及编译参数 #}
+{# 注释
+{% macro mysql_version(version='5.5.32') -%}
+  {{ version }}
+{%- endmacro %}
+
+{% macro mysql_compile(compile='cmake . -DCMAKE_INSTALL_PREFIX=/app/mysql-5.5.32 -DMYSQL_DATADIR=/app/mysql-5.5.32/data -DMYSQL_UNIX_ADDR=/app/mysql-5.5.32/tmp/mysql.sock -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DEXTRA_CHARSETS=all -DENABLED_LOCAL_INFILE=ON -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 -DWITHOUT_PARTITION_STORAGE_ENGINE=1 -DWITH_FAST_MUTEXES=1 -DWITH_ZLIB=bundled -DWITH_SSL=bundled -DENABLED_LOCAL_INFILE=1 -DWITH_READLINE=1 -DWITH_EMBEDDED_SERVER=1 -DWITH_DEBUG=0') -%}
+  {{ compile }}
+{%- endmacro %}
+#}
+
+{% macro mysql_password(password='123456') -%}
+  {{ password }}
+{%- endmacro %}
+
+{# 给test库创建用户和密码  用于测试 #}
+{% macro mysql_test_user(test_user='test') -%}
+  {{ test_user }}
+{%- endmacro %}
+
+{% macro mysql_test_password(test_password='123456') -%}
+  {{ test_password }}
+{%- endmacro %}
+
+
+{# mysql 主从复制用户的密码 #}
+{% macro mysql_rep_password(rep_password='123456') -%}
+  {{ rep_password }}
+{%- endmacro %}
+
+{% macro mysql_rep_salt_path(salt_rep_path="/app/software/salt-manage/mysql_rep") -%}
+  {{ salt_rep_path }}
+{%- endmacro %}
+

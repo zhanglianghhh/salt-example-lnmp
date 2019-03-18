@@ -1,0 +1,7 @@
+{% macro nginx_salt_path(salt_path="/app/software/salt-manage/nginx") -%}
+  {{ salt_path }}
+{%- endmacro %}
+
+{% macro nginx_version(version='1.14.2') -%}
+  {{ version }}
+{%- endmacro %}

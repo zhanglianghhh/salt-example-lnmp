@@ -1,0 +1,19 @@
+{#
+http://salt01-haproxy:8888/haproxy-status   # 状态访问
+http://salt01-haproxy/test_mysql.php        # 查看 test_mysql.php
+http://salt01-haproxy/test_memcached.php    # 查看 test_memcached.php
+
+http://salt02-haproxy:8888/haproxy-status   # 状态访问
+http://salt02-haproxy/test_mysql.php        # 查看 test_mysql.php
+http://salt02-haproxy/test_memcached.php    # 查看 test_memcached.php
+#}
+
+{% macro haproxy_salt_path(salt_path="/app/software/salt-manage/haproxy") -%}
+  {{ salt_path }}
+{%- endmacro %}
+
+{% macro haproxy_version(version='1.8.4') -%}
+  {{ version }}
+{%- endmacro %}
+
+

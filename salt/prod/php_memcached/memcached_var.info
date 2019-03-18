@@ -1,0 +1,26 @@
+{# 参考文章：https://www.lezhizhe.net/archives/351/ #}
+
+{% macro php_memcached_salt_path(salt_path="/app/software/salt-manage/php-memcached") -%}
+  {{ salt_path }}
+{%- endmacro %}
+
+{% macro libmemcached_version(version='1.0.18') -%}
+  {{ version }}
+{%- endmacro %}
+
+{% macro php_memcached_version(version='2.2.0') -%}
+  {{ version }}
+{%- endmacro %}
+
+{% macro php_dir(php_dir='/app/php') -%}
+  {{ php_dir }}
+{%- endmacro %}
+
+{% macro php_memcached_path(php_memcached_path='/app/nginx/html') -%}
+  {{ php_memcached_path }}
+{%- endmacro %}
+
+{% macro memcached_host(memcached_host='salt05-web') -%}
+  {{ memcached_host }}
+{%- endmacro %}
+
