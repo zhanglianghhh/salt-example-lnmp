@@ -29,29 +29,29 @@ salt -L "${mysql_master},${mysql_slave}" state.sls init.init
 
 ##########################################################
 ## 安装数据库
-salt -L "${mysql_master},${mysql_slave}" state.sls mysql.mysql_install 
-salt -L "${mysql_master},${mysql_slave}" state.sls mysql.mysql_service 
-salt -L "${mysql_master},${mysql_slave}" state.sls mysql.mysql_pswd_init 
+salt -L "${mysql_master},${mysql_slave}" state.sls mysql.mysql_install && \
+salt -L "${mysql_master},${mysql_slave}" state.sls mysql.mysql_service && \
+salt -L "${mysql_master},${mysql_slave}" state.sls mysql.mysql_pswd_init && {
 
-##########################################################
-## 主从复制实现操作
-# 主从复制主操作
-salt -L "${mysql_master}" state.sls mysql_master_slave.master_slave_rep_master 
+  ##########################################################
+  ## 主从复制实现操作
+  # 主从复制主操作
+  salt -L "${mysql_master}" state.sls mysql_master_slave.master_slave_rep_master 
 
 
-# 判断是否执行过，如果已执行那么久不再次执行了
-#[ ! -f ${files_dir}/master.info.txt -o ! -f ${files_dir}/salt_rep_back.sql.gz ] && {
-  # 将master.info.txt 和 salt_rep_back.sql.gz 从minion拉取到master
-  salt "${mysql_master}" cp.push ${mysql_rep_salt_path}/master.info.txt
-  salt "${mysql_master}" cp.push ${mysql_rep_salt_path}/salt_rep_back.sql.gz
+  # 判断是否执行过，如果已执行那么久不再次执行了
+  #[ ! -f ${files_dir}/master.info.txt -o ! -f ${files_dir}/salt_rep_back.sql.gz ] && {
+    # 将master.info.txt 和 salt_rep_back.sql.gz 从minion拉取到master
+    salt "${mysql_master}" cp.push ${mysql_rep_salt_path}/master.info.txt
+    salt "${mysql_master}" cp.push ${mysql_rep_salt_path}/salt_rep_back.sql.gz
 
-  # 拷贝到当前目录的files中
-  \cp -a ${push_path}${mysql_rep_salt_path}/master.info.txt ${files_dir}
-  \cp -a ${push_path}${mysql_rep_salt_path}/salt_rep_back.sql.gz ${files_dir}
-#}
+    # 拷贝到当前目录的files中
+    \cp -a ${push_path}${mysql_rep_salt_path}/master.info.txt ${files_dir}
+    \cp -a ${push_path}${mysql_rep_salt_path}/salt_rep_back.sql.gz ${files_dir}
+  #}
 
-# 主从复制从操作
-salt -L "${mysql_slave}" state.sls mysql_master_slave.master_slave_rep_slave 
-
+  # 主从复制从操作
+  salt -L "${mysql_slave}" state.sls mysql_master_slave.master_slave_rep_slave 
+}
 
 
