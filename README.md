@@ -7,10 +7,11 @@ SaltStack自动化部署中小型Web架构
 ---- | ---- | ---- | 10.0.0.110 | ---- | Keepalived虚拟IP地址
 01 | CentOS7.5 | 172.16.1.111 | 10.0.0.111 | salt01-haproxy | haproxy、salt-minion、zabbix-agent
 02 | CentOS7.5 | 172.16.1.112 | 10.0.0.112 | salt02-haproxy | haproxy、salt-minion、zabbix-agent
-03 | CentOS7.5 | 172.16.1.113 | 10.0.0.113 | salt03-web | Nginx+PHP、Mysql(master)、salt-minion、zabbix-agent
-04 | CentOS7.5 | 172.16.1.114 | 10.0.0.114 | salt04-web | Nginx+PHP、Mysql(slave)、salt-minion、zabbix-agent
-05 | CentOS7.5 | 172.16.1.115 | 10.0.0.115 | salt05-web | Nginx+PHP、Mysql(slave)、memcached、salt-minion、zabbix-agent
-06 | CentOS7.5 | 172.16.1.150 | 10.0.0.150 | salt150-master | salt-master、salt-minion、zabbix-server、zabbix-agent、Mariadb【zabbix使用】
+03 | CentOS7.5 | 172.16.1.113 | 无 | salt03-web | Nginx+PHP、Mysql(master)、salt-minion、zabbix-agent
+04 | CentOS7.5 | 172.16.1.114 | 无 | salt04-web | Nginx+PHP、Mysql(slave)、salt-minion、zabbix-agent
+05 | CentOS7.5 | 172.16.1.115 | 无 | salt05-web | Nginx+PHP、Mysql(slave)、salt-minion、zabbix-agent、memcached
+06 | CentOS7.5 | 172.16.1.150 | 无 | salt150-master | salt-master、salt-minion、zabbix-server、zabbix-agent、Mariadb【zabbix使用】
+07 | CentOS7.5 | 172.16.1.15 | 10.0.0.15 | GateWay00 | 用于salt03-web、salt04-web、salt05-web的网关服务器，实现公网访问目的
 
 ## 2.系统架构
 ![架构图](https://raw.githubusercontent.com/zhanglianghhh/salt-example-lnmp/master/salt-example-lnmp.png)
